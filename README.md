@@ -13,8 +13,6 @@
 
 **Transform podcasts into viral clips with AI-powered precision**
 
-[🎬 Demo Video](https://youtu.be/PeFZcvWucoU) • [💬 Discord](https://www.andreastrolle.com/) • [📚 Documentation](#setup)
-
 </div>
 
 ---
@@ -108,7 +106,7 @@ Before you begin, ensure you have the following installed:
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone --recurse-submodules https://github.com/Andreaswt/ai-podcast-clipper-saas.git
+git clone --recurse-submodules https://github.com/devopsdeepaks/PodcastClipper
 cd ai-podcast-clipper-saas
 ```
 
@@ -280,7 +278,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- **[Andreas Trolle](https://www.andreastrolle.com/)** - Original project inspiration and tutorial
+\*\* - Original project inspiration and tutorial
+
 - **Junhua-Liao** - LR-ASD active speaker detection model
 - **m-bain** - WhisperX transcription model
 - **Google** - Gemini AI for viral moment identification
