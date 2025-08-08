@@ -3,6 +3,11 @@
 .AppleDouble
 .LSOverride
 
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
 # Log files
 *.log
 npm-debug.log*
@@ -23,10 +28,26 @@ pnpm-debug.log*
 !.vscode/launch.json
 !.vscode/extensions.json
 *.sublime-workspace
+.idea/
 
+# Media files for testing (not needed in production)
 *.mp4
+*.mp3
+*.wav
+*.avi
+*.mov
 
-# Frontend (evo2-frontend - Next.js)
+# Design files
+*.excalidraw
+*.fig
+*.sketch
+
+# Development/test files
+*test*
+*debug*
+ytdownload.py
+
+# Frontend (Next.js)
 ai-podcast-clipper-frontend/node_modules/
 ai-podcast-clipper-frontend/.next/
 ai-podcast-clipper-frontend/out/
@@ -34,7 +55,7 @@ ai-podcast-clipper-frontend/.env*.local
 ai-podcast-clipper-frontend/*.tsbuildinfo
 ai-podcast-clipper-frontend/next-env.d.ts
 
-# Backend (evo2-backend - Python/Modal)
+# Backend (Python/Modal)
 ai-podcast-clipper-backend/__pycache__/
 ai-podcast-clipper-backend/*.pyc
 ai-podcast-clipper-backend/*.pyo

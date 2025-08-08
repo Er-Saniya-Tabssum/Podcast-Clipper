@@ -1,3 +1,20 @@
+/**
+ * Authentication Server Actions
+ * ============================
+ *
+ * Handles user registration and Stripe customer creation.
+ * Provides secure server-side authentication logic with validation.
+ *
+ * Features:
+ * - User signup with email/password validation
+ * - Secure password hashing
+ * - Automatic Stripe customer creation
+ * - Initial credit allocation for new users
+ * - Duplicate email prevention
+ *
+ * Author: Deepak Singhal
+ */
+
 "use server";
 
 import { hashPassword } from "~/lib/auth";
@@ -12,6 +29,7 @@ type SignupResult = {
 };
 
 export async function signUp(data: SignupFormValues): Promise<SignupResult> {
+  // Validate input data against schema
   const validationResult = signupSchema.safeParse(data);
   if (!validationResult.success) {
     return {
@@ -23,6 +41,7 @@ export async function signUp(data: SignupFormValues): Promise<SignupResult> {
   const { email, password } = validationResult.data;
 
   try {
+    // Check if user already exists
     const existingUser = await db.user.findUnique({ where: { email } });
 
     if (existingUser) {
@@ -50,6 +69,30 @@ export async function signUp(data: SignupFormValues): Promise<SignupResult> {
 
     return { success: true };
   } catch (error) {
-    return { success: false, error: "An error occured during signup" };
+    console.error("Signup error:", error);
+
+    // Provide more specific error messages
+    if (error instanceof Error) {
+      if (error.message.includes("Stripe")) {
+        return {
+          success: false,
+          error: "Payment system configuration error. Please try again later.",
+        };
+      }
+      if (
+        error.message.includes("database") ||
+        error.message.includes("connect")
+      ) {
+        return {
+          success: false,
+          error: "Database connection error. Please try again later.",
+        };
+      }
+    }
+
+    return {
+      success: false,
+      error: "An error occurred during signup. Please try again.",
+    };
   }
 }

@@ -11,7 +11,6 @@ import {
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Button } from "./ui/button";
-import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
@@ -52,9 +51,11 @@ export function SignupForm({
         redirect: false,
       });
 
+      console.log("Sign in result:", signUpResult);
+
       if (signUpResult?.error) {
         setError(
-          "Account created but couldn't sign in automatically. Please try again.",
+          "Account created successfully but couldn't sign in automatically. Please try signing in manually.",
         );
       } else {
         router.push("/dashboard");
@@ -68,61 +69,106 @@ export function SignupForm({
 
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-2xl">Sign up</CardTitle>
-          <CardDescription>
-            Enter your email below to sign up to your account
+      {/* Logo/Header */}
+      <div className="animate-slide-down space-y-2 text-center">
+        <div className="mx-auto mb-4">
+          <h1 className="text-gradient text-3xl font-bold">podcast/clipper</h1>
+        </div>
+        <h2 className="text-foreground text-2xl font-bold">
+          Join the Revolution! 🎉
+        </h2>
+        <p className="text-muted-foreground">
+          Create your account and start making viral clips today
+        </p>
+      </div>
+
+      <Card className="glass-effect border-border/20 hover:border-primary/30 hover-lift border-2 transition-all duration-300">
+        <CardHeader className="space-y-2 text-center">
+          <CardTitle className="text-xl font-semibold">
+            ✨ Create Account
+          </CardTitle>
+          <CardDescription className="text-base">
+            Join thousands of creators already making amazing content
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="flex flex-col gap-6">
-              <div className="grid gap-2">
-                <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="m@example.com"
-                  required
-                  {...register("email")}
-                />
-                {errors.email && (
-                  <p className="text-sm text-red-500">{errors.email.message}</p>
-                )}
-              </div>
-              <div className="grid gap-2">
-                <div className="flex items-center">
-                  <Label htmlFor="password">Password</Label>
-                </div>
-                <Input
-                  id="password"
-                  type="password"
-                  required
-                  {...register("password")}
-                />
-                {errors.password && (
-                  <p className="text-sm text-red-500">
-                    {errors.password.message}
-                  </p>
-                )}
-              </div>
-
-              {error && (
-                <p className="rounded-md bg-red-50 p-3 text-sm text-red-500">
-                  {error}
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+            {/* Email Field */}
+            <div className="space-y-2">
+              <Label htmlFor="email" className="text-sm font-medium">
+                📧 Email Address
+              </Label>
+              <Input
+                id="email"
+                type="email"
+                placeholder="your@email.com"
+                className="bg-background/50 border-border/50 focus:border-primary focus:ring-primary/20 h-12 transition-all duration-300"
+                required
+                {...register("email")}
+              />
+              {errors.email && (
+                <p className="text-destructive flex items-center gap-1 text-sm">
+                  ❌ {errors.email.message}
                 </p>
               )}
-
-              <Button type="submit" className="w-full" disabled={isSubmitting}>
-                {isSubmitting ? "Signing up..." : "Sign up"}
-              </Button>
             </div>
-            <div className="mt-4 text-center text-sm">
-              Already have an account?{" "}
-              <Link href="/login" className="underline underline-offset-4">
-                Sign in
-              </Link>
+
+            {/* Password Field */}
+            <div className="space-y-2">
+              <Label htmlFor="password" className="text-sm font-medium">
+                🔑 Password
+              </Label>
+              <Input
+                id="password"
+                type="password"
+                placeholder="••••••••"
+                className="bg-background/50 border-border/50 focus:border-primary focus:ring-primary/20 h-12 transition-all duration-300"
+                required
+                {...register("password")}
+              />
+              {errors.password && (
+                <p className="text-destructive flex items-center gap-1 text-sm">
+                  ❌ {errors.password.message}
+                </p>
+              )}
+            </div>
+
+            {/* Error Message */}
+            {error && (
+              <div className="bg-destructive/10 border-destructive/20 animate-fade-scale rounded-lg border p-4">
+                <p className="text-destructive flex items-center gap-2 text-sm">
+                  ⚠️ {error}
+                </p>
+              </div>
+            )}
+
+            {/* Submit Button */}
+            <Button
+              type="submit"
+              className="bg-gradient-primary hover-lift h-12 w-full text-base font-semibold text-white shadow-lg hover:opacity-90"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? (
+                <>
+                  <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
+                  Creating account...
+                </>
+              ) : (
+                <>🎯 Create Account</>
+              )}
+            </Button>
+
+            {/* Login Link */}
+            <div className="border-border/30 border-t pt-4 text-center">
+              <p className="text-muted-foreground text-sm">
+                Already have an account?{" "}
+                <Link
+                  href="/login"
+                  className="text-primary hover:text-primary/80 font-medium transition-colors duration-200 hover:underline"
+                >
+                  Sign in here 🔐
+                </Link>
+              </p>
             </div>
           </form>
         </CardContent>

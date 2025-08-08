@@ -1,5 +1,11 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+// AI Podcast Clipper Database Schema
+// ==================================
+// 
+// Prisma schema definition for the AI Podcast Clipper SaaS application.
+// Defines models for user management, file uploads, clip generation, and billing.
+//
+// Author: Deepak Singhal
+// Learn more about Prisma: https://pris.ly/d/prisma-schema
 
 generator client {
     provider = "prisma-client-js"
