@@ -1,3 +1,8 @@
+# AI Podcast Clipper SaaS - .gitignore
+# Created by: Deepak Singhal (@devopsdeepaks)
+# Repository: https://github.com/devopsdeepaks/PodcastClipper
+# Copyright (c) 2025 Deepak Singhal. All rights reserved.
+
 # macOS
 .DS_Store
 .AppleDouble
