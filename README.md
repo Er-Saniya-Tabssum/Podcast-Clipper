@@ -272,18 +272,6 @@ We welcome contributions! Please feel free to submit a Pull Request. For major c
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-\*\* - Original project inspiration and tutorial
-
-- **Junhua-Liao** - LR-ASD active speaker detection model
-- **m-bain** - WhisperX transcription model
-- **Google** - Gemini AI for viral moment identification
-
 ## 👨‍💻 Developed By
 
 **Deepak Singhal**
@@ -297,6 +285,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **⭐ Star this repository if it helped you!**
 
-Made with ❤️ by [Deepak Singhal](https://github.com/devopsdeepaks)
+Made by [Deepak Singhal](https://github.com/devopsdeepaks)
 
 </div>
