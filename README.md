@@ -276,7 +276,6 @@ We welcome contributions! Please feel free to submit a Pull Request. For major c
 
 **Saniya Tabssum**
 
-- GitHub: [@devopsdeepaks](https://github.com/Er-Saniya-Tabssum/Podcast-Clipper)
 
 ---
 
