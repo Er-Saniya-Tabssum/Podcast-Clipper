@@ -106,7 +106,7 @@ Before you begin, ensure you have the following installed:
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone --recurse-submodules https://github.com/devopsdeepaks/PodcastClipper
+git clone --recurse-submodules https://github.com/Er-Saniya-Tabssum/Podcast-Clipper
 cd ai-podcast-clipper-saas
 ```
 
@@ -274,17 +274,12 @@ We welcome contributions! Please feel free to submit a Pull Request. For major c
 
 ## 👨‍💻 Developed By
 
-**Deepak Singhal**
+**Saniya Tabssum**
 
-- GitHub: [@devopsdeepaks](https://github.com/devopsdeepaks)
-- LinkedIn: [Deepak Singhal](https://linkedin.com/in/devopsdeepaks)
+- GitHub: [@devopsdeepaks](https://github.com/Er-Saniya-Tabssum/Podcast-Clipper)
 
 ---
 
 <div align="center">
-
-**⭐ Star this repository if it helped you!**
-
-Made by [Deepak Singhal](https://github.com/devopsdeepaks)
 
 </div>
